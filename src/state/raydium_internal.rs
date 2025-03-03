@@ -1,9 +1,6 @@
 use anchor_lang::{account, declare_id, zero_copy};
 use solana_program::pubkey::Pubkey;
 
-#[cfg(feature = "devnet")]
-declare_id!("devi51mZmdwUJGU9hjN27vEz64Gps7uUefqxg27EAtH");
-#[cfg(not(feature = "devnet"))]
 declare_id!("CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK");
 
 pub const REWARD_NUM: usize = 3;
@@ -13,8 +10,9 @@ pub const REWARD_NUM: usize = 3;
 /// PDA of `[POOL_SEED, config, token_mint_0, token_mint_1]`
 ///
 #[account(zero_copy(unsafe))]
-#[repr(packed)]
+#[repr(C)]
 #[derive(Default, Debug)]
+#[allow(dead_code)]
 pub struct PoolState {
     /// Bump to identify PDA
     pub bump: [u8; 1],
@@ -100,7 +98,7 @@ pub struct PoolState {
 }
 
 #[zero_copy(unsafe)]
-#[repr(packed)]
+#[repr(C)]
 #[derive(Default, Debug, PartialEq, Eq)]
 pub struct RewardInfo {
     /// Reward state

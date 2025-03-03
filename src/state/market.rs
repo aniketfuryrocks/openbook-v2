@@ -320,10 +320,3 @@ impl Market {
             .unwrap()
     }
 }
-
-/// Generate signed seeds for the market
-macro_rules! market_seeds {
-    ($market:expr,$key:expr) => {
-        &[b"Market".as_ref(), &$key.to_bytes(), &[$market.bump]]
-    };
-}

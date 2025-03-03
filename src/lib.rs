@@ -1,7 +1,5 @@
 //! A central-limit order book (CLOB) program that targets the Sealevel runtime.
 
-use anchor_lang::prelude::*;
-
 solana_program::declare_id!("opnb2LAfJYbRMAHHvqjCwQxanZn7ReEHp1k81EohpZb");
 
 #[macro_use]
@@ -16,6 +14,3 @@ pub mod token_utils;
 pub mod types;
 
 mod i80f48;
-
-#[program]
-pub mod openbook_v2 {}

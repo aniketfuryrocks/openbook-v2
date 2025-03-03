@@ -417,10 +417,7 @@ impl OrderTreeNodes {
 
     /// Returns the handle of the node with the lowest expiry timestamp, and this timestamp
     pub fn find_earliest_expiry(&self, root: &OrderTreeRoot) -> Option<(NodeHandle, u64)> {
-        let mut current: NodeHandle = match root.node() {
-            Some(h) => h,
-            None => return None,
-        };
+        let mut current: NodeHandle = root.node()?;
 
         loop {
             let contents = *self.node(current).unwrap();
