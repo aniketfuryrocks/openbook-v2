@@ -10,7 +10,7 @@ pub const REWARD_NUM: usize = 3;
 /// PDA of `[POOL_SEED, config, token_mint_0, token_mint_1]`
 ///
 #[account(zero_copy(unsafe))]
-#[repr(C)]
+#[repr(C, packed)]
 #[derive(Default, Debug)]
 #[allow(dead_code)]
 pub struct PoolState {
@@ -98,7 +98,7 @@ pub struct PoolState {
 }
 
 #[zero_copy(unsafe)]
-#[repr(C)]
+#[repr(C, packed)]
 #[derive(Default, Debug, PartialEq, Eq)]
 pub struct RewardInfo {
     /// Reward state
